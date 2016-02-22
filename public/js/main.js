@@ -23896,7 +23896,7 @@ var Base = React.createClass({
   render: function () {
 
     var articlesStyle = {
-      marginTop: -80
+      marginTop: -100
     };
 
     return React.createElement(
@@ -23908,7 +23908,7 @@ var Base = React.createClass({
         React.createElement(
           'div',
           { className: 'articleshome' },
-          React.createElement(Header, { title: 'Country News', subtitle: 'Top stories in my country', links: 'sdfsdf' })
+          React.createElement(Header, { title: 'Country News', subtitle: 'Top stories in my country', links: '' })
         )
       ),
       React.createElement(
@@ -23922,7 +23922,7 @@ var Base = React.createClass({
 
 module.exports = Base;
 
-},{"./header/Header.jsx":224,"react":214,"react-router":29}],218:[function(require,module,exports){
+},{"./header/Header.jsx":226,"react":214,"react-router":29}],218:[function(require,module,exports){
 var React = require('react');
 var Article = require('./article/Article.jsx');
 var Header = require('./header/Header.jsx');
@@ -23939,8 +23939,18 @@ var News = React.createClass({
       React.createElement(
         'div',
         { className: 'articles' },
-        React.createElement(Article, { title: 'hello', subtitle: 'hello1', text: 'helloo3' }),
-        React.createElement(Article, { title: 'hello2', subtitle: 'hello2', text: 'helloo4' })
+        React.createElement(Article, {
+          title: 'TESTING TITLE 1',
+          subtitle: 'TESTING SUBTITLE 1 ',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+          image: './images/reactlogo.svg',
+          location: 'Toronto,Ontario' }),
+        React.createElement(Article, {
+          title: 'TESTING TITLE 2',
+          subtitle: 'TESTING SUBTITLE 2 ',
+          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
+          image: './images/reactlogo.svg',
+          location: 'Toronto,Ontario' })
       )
     );
   }
@@ -23948,7 +23958,7 @@ var News = React.createClass({
 
 module.exports = News;
 
-},{"./article/Article.jsx":220,"./header/Header.jsx":224,"react":214,"react-router":29}],219:[function(require,module,exports){
+},{"./article/Article.jsx":220,"./header/Header.jsx":226,"react":214,"react-router":29}],219:[function(require,module,exports){
 var React = require('react');
 
 var Photos = React.createClass({
@@ -23970,14 +23980,17 @@ var React = require('react');
 var ArticleTitle = require('./ArticleTitle.jsx');
 var ArticleSubTitle = require('./ArticleSubTitle.jsx');
 var ArticleText = require('./ArticleText.jsx');
+var ArticleLocation = require('./ArticleLocation.jsx');
+var ArticleImage = require('./ArticleImage.jsx');
 
 var Article = React.createClass({
   displayName: 'Article',
 
   render: function () {
 
-    var articleStyle = {
-      height: 300
+    var photoStyle = {
+      margin: 15
+
     };
 
     return React.createElement(
@@ -23985,17 +23998,24 @@ var Article = React.createClass({
       { className: 'col-sm-10' },
       React.createElement(
         'div',
-        { style: articleStyle, className: 'panel panel-default' },
+        { className: 'panel panel-default' },
         React.createElement(
           'div',
           { className: 'panel-body' },
           React.createElement('div', { className: 'col-xs-2' }),
           React.createElement(
             'div',
-            { className: 'col-xs-10' },
+            { className: 'col-xs-8' },
             React.createElement(ArticleTitle, { text: this.props.title }),
             React.createElement(ArticleSubTitle, { text: this.props.subtitle }),
-            React.createElement(ArticleText, { text: this.props.text })
+            React.createElement(ArticleText, { text: this.props.text }),
+            React.createElement(
+              'div',
+              { className: 'photos' },
+              React.createElement(ArticleImage, { img_src: this.props.image }),
+              React.createElement(ArticleImage, { img_src: this.props.image })
+            ),
+            React.createElement(ArticleLocation, { text: this.props.location })
           )
         )
       )
@@ -24006,16 +24026,63 @@ var Article = React.createClass({
 
 module.exports = Article;
 
-},{"./ArticleSubTitle.jsx":221,"./ArticleText.jsx":222,"./ArticleTitle.jsx":223,"react":214}],221:[function(require,module,exports){
+},{"./ArticleImage.jsx":221,"./ArticleLocation.jsx":222,"./ArticleSubTitle.jsx":223,"./ArticleText.jsx":224,"./ArticleTitle.jsx":225,"react":214}],221:[function(require,module,exports){
+var React = require('react');
+
+var ArticleImage = React.createClass({
+  displayName: 'ArticleImage',
+
+  render: function () {
+
+    var imageStyle = {
+      height: 80,
+      margin: 5
+    };
+
+    return React.createElement('img', { style: imageStyle, src: this.props.img_src });
+  }
+});
+
+module.exports = ArticleImage;
+
+},{"react":214}],222:[function(require,module,exports){
+var React = require('react');
+
+var ArticleLocation = React.createClass({
+  displayName: 'ArticleLocation',
+
+  render: function () {
+
+    locationStyle = {
+      fontWeight: 'normal',
+      color: 'grey'
+    };
+
+    return React.createElement(
+      'h3',
+      { style: locationStyle },
+      this.props.text
+    );
+  }
+});
+
+module.exports = ArticleLocation;
+
+},{"react":214}],223:[function(require,module,exports){
 var React = require('react');
 
 var ArticleSubTitle = React.createClass({
   displayName: 'ArticleSubTitle',
 
   render: function () {
+
+    var fontStyle = {
+      fontWeight: 'lighter'
+
+    };
     return React.createElement(
-      'h5',
-      null,
+      'h4',
+      { style: fontStyle },
       this.props.text
     );
   }
@@ -24023,16 +24090,20 @@ var ArticleSubTitle = React.createClass({
 
 module.exports = ArticleSubTitle;
 
-},{"react":214}],222:[function(require,module,exports){
+},{"react":214}],224:[function(require,module,exports){
 var React = require('react');
 
 var ArticleText = React.createClass({
   displayName: 'ArticleText',
 
   render: function () {
+
+    var textStyle = {
+      lineHeight: 2
+    };
     return React.createElement(
       'p',
-      null,
+      { style: textStyle },
       this.props.text
     );
   }
@@ -24040,7 +24111,7 @@ var ArticleText = React.createClass({
 
 module.exports = ArticleText;
 
-},{"react":214}],223:[function(require,module,exports){
+},{"react":214}],225:[function(require,module,exports){
 var React = require('react');
 
 var ArticleTitle = React.createClass({
@@ -24048,7 +24119,7 @@ var ArticleTitle = React.createClass({
 
   render: function () {
     return React.createElement(
-      'h4',
+      'h3',
       null,
       this.props.text
     );
@@ -24057,11 +24128,11 @@ var ArticleTitle = React.createClass({
 
 module.exports = ArticleTitle;
 
-},{"react":214}],224:[function(require,module,exports){
+},{"react":214}],226:[function(require,module,exports){
 var React = require('react');
 var HeaderTitle = require('./HeaderTitle.jsx');
 var HeaderSubTitle = require('./HeaderSubTitle.jsx');
-var HeaderLinks = require('./HeaderLinks.jsx');
+var Link = require('react-router').Link;
 
 var Header = React.createClass({
   displayName: 'Header',
@@ -24074,15 +24145,42 @@ var Header = React.createClass({
       color: 'white'
     };
 
+    var linkStyle = {};
+
     return React.createElement(
       'div',
       { style: headerStyle, className: 'header1' },
       React.createElement(
         'div',
         { className: 'col-sm-8 col-sm-offset-2' },
-        React.createElement(HeaderTitle, { text: this.props.title }),
-        React.createElement(HeaderSubTitle, { text: this.props.subtitle }),
-        React.createElement(HeaderLinks, { text: this.props.links })
+        React.createElement(
+          'div',
+          { className: 'col-xs-8' },
+          React.createElement(HeaderTitle, { text: this.props.title }),
+          React.createElement(HeaderSubTitle, { text: this.props.subtitle })
+        ),
+        React.createElement(
+          'div',
+          { className: 'col-xs-4' },
+          React.createElement(
+            'h5',
+            null,
+            React.createElement(
+              Link,
+              { to: '/photos' },
+              'Photos'
+            )
+          ),
+          React.createElement(
+            'h5',
+            null,
+            React.createElement(
+              Link,
+              { to: '/news' },
+              'News'
+            )
+          )
+        )
       )
     );
   }
@@ -24091,25 +24189,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./HeaderLinks.jsx":225,"./HeaderSubTitle.jsx":226,"./HeaderTitle.jsx":227,"react":214}],225:[function(require,module,exports){
-var React = require('react');
-var Link = require('react-router').Link;
-
-var HeaderLinks = React.createClass({
-  displayName: 'HeaderLinks',
-
-  render: function () {
-    return React.createElement(
-      'p',
-      null,
-      this.props.text
-    );
-  }
-});
-
-module.exports = HeaderLinks;
-
-},{"react":214,"react-router":29}],226:[function(require,module,exports){
+},{"./HeaderSubTitle.jsx":227,"./HeaderTitle.jsx":228,"react":214,"react-router":29}],227:[function(require,module,exports){
 var React = require('react');
 
 var HeaderSubTitle = React.createClass({
@@ -24126,7 +24206,7 @@ var HeaderSubTitle = React.createClass({
 
 module.exports = HeaderSubTitle;
 
-},{"react":214}],227:[function(require,module,exports){
+},{"react":214}],228:[function(require,module,exports){
 var React = require('react');
 
 var HeaderTitle = React.createClass({
@@ -24143,11 +24223,11 @@ var HeaderTitle = React.createClass({
 
 module.exports = HeaderTitle;
 
-},{"react":214}],228:[function(require,module,exports){
+},{"react":214}],229:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Routes = require('./Routes.jsx');
 
 ReactDOM.render(Routes, document.getElementById('main'));
 
-},{"./Routes.jsx":216,"react":214,"react-dom":1}]},{},[228]);
+},{"./Routes.jsx":216,"react":214,"react-dom":1}]},{},[229]);

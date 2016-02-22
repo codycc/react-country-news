@@ -11,8 +11,24 @@ var News = React.createClass({
 
       <div className="col-sm-offset-2">
         <div className="articles">
-            <Article title="hello" subtitle="hello1" text="helloo3"/>
-            <Article title="hello2" subtitle="hello2" text="helloo4"/>
+            <Article
+            title="TESTING TITLE 1"
+            subtitle="TESTING SUBTITLE 1 "
+            text="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus
+                  asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?"
+            image="./images/reactlogo.svg"
+           location="Toronto,Ontario"/>
+
+           <Article
+           title="TESTING TITLE 2"
+           subtitle="TESTING SUBTITLE 2 "
+           text="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                 Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus
+                 asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?"
+           image="./images/reactlogo.svg"
+          location="Toronto,Ontario"/>
+
         </div>
       </div>
 

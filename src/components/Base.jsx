@@ -7,7 +7,7 @@ var Base = React.createClass({
 
 
     var articlesStyle =  {
-      marginTop:-80
+      marginTop:-100
     };
 
     return (
@@ -15,7 +15,7 @@ var Base = React.createClass({
 
               <div className="row">
                 <div className="articleshome">
-                  <Header title="Country News" subtitle="Top stories in my country" links="sdfsdf"/>
+                  <Header title="Country News" subtitle="Top stories in my country" links=""/>
                 </div>
               </div>
 
