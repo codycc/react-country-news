@@ -10,11 +10,7 @@ var Article = React.createClass({
 
 
 
-    var photoStyle = {
-      margin: 15
-
-
-    };
+  
 
 
     return (

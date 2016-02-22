@@ -23968,7 +23968,7 @@ var Photos = React.createClass({
     return React.createElement(
       'h1',
       null,
-      'Photos'
+      'phootss'
     );
   }
 });
@@ -23987,11 +23987,6 @@ var Article = React.createClass({
   displayName: 'Article',
 
   render: function () {
-
-    var photoStyle = {
-      margin: 15
-
-    };
 
     return React.createElement(
       'div',
