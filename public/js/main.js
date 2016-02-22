@@ -23922,7 +23922,7 @@ var Base = React.createClass({
 
 module.exports = Base;
 
-},{"./header/Header.jsx":226,"react":214,"react-router":29}],218:[function(require,module,exports){
+},{"./header/Header.jsx":227,"react":214,"react-router":29}],218:[function(require,module,exports){
 var React = require('react');
 var Article = require('./article/Article.jsx');
 var Header = require('./header/Header.jsx');
@@ -23940,6 +23940,7 @@ var News = React.createClass({
         'div',
         { className: 'articles' },
         React.createElement(Article, {
+          profile: './images/profileimage.png',
           title: 'TESTING TITLE 1',
           subtitle: 'TESTING SUBTITLE 1 ',
           text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
@@ -23958,30 +23959,32 @@ var News = React.createClass({
 
 module.exports = News;
 
-},{"./article/Article.jsx":220,"./header/Header.jsx":226,"react":214,"react-router":29}],219:[function(require,module,exports){
+},{"./article/Article.jsx":220,"./header/Header.jsx":227,"react":214,"react-router":29}],219:[function(require,module,exports){
 var React = require('react');
+var PhotoCard = require('./photo/PhotoCard.jsx');
 
 var Photos = React.createClass({
   displayName: 'Photos',
 
   render: function () {
     return React.createElement(
-      'h1',
-      null,
-      'phootss'
+      'div',
+      { className: 'col-sm-offset-2' },
+      React.createElement(PhotoCard, { image: './images/reactlogo.svg' })
     );
   }
 });
 
 module.exports = Photos;
 
-},{"react":214}],220:[function(require,module,exports){
+},{"./photo/PhotoCard.jsx":231,"react":214}],220:[function(require,module,exports){
 var React = require('react');
 var ArticleTitle = require('./ArticleTitle.jsx');
 var ArticleSubTitle = require('./ArticleSubTitle.jsx');
 var ArticleText = require('./ArticleText.jsx');
 var ArticleLocation = require('./ArticleLocation.jsx');
 var ArticleImage = require('./ArticleImage.jsx');
+var ArticleProfile = require('./ArticleProfile.jsx');
 
 var Article = React.createClass({
   displayName: 'Article',
@@ -23997,7 +24000,11 @@ var Article = React.createClass({
         React.createElement(
           'div',
           { className: 'panel-body' },
-          React.createElement('div', { className: 'col-xs-2' }),
+          React.createElement(
+            'div',
+            { className: 'col-xs-2' },
+            React.createElement(ArticleProfile, { img_src: this.props.profile })
+          ),
           React.createElement(
             'div',
             { className: 'col-xs-8' },
@@ -24021,7 +24028,7 @@ var Article = React.createClass({
 
 module.exports = Article;
 
-},{"./ArticleImage.jsx":221,"./ArticleLocation.jsx":222,"./ArticleSubTitle.jsx":223,"./ArticleText.jsx":224,"./ArticleTitle.jsx":225,"react":214}],221:[function(require,module,exports){
+},{"./ArticleImage.jsx":221,"./ArticleLocation.jsx":222,"./ArticleProfile.jsx":223,"./ArticleSubTitle.jsx":224,"./ArticleText.jsx":225,"./ArticleTitle.jsx":226,"react":214}],221:[function(require,module,exports){
 var React = require('react');
 
 var ArticleImage = React.createClass({
@@ -24066,6 +24073,25 @@ module.exports = ArticleLocation;
 },{"react":214}],223:[function(require,module,exports){
 var React = require('react');
 
+var ArticleProfile = React.createClass({
+  displayName: 'ArticleProfile',
+
+  render: function () {
+
+    var imageStyle = {
+      height: 80,
+      margin: 5
+    };
+
+    return React.createElement('img', { style: imageStyle, src: this.props.img_src });
+  }
+});
+
+module.exports = ArticleProfile;
+
+},{"react":214}],224:[function(require,module,exports){
+var React = require('react');
+
 var ArticleSubTitle = React.createClass({
   displayName: 'ArticleSubTitle',
 
@@ -24085,7 +24111,7 @@ var ArticleSubTitle = React.createClass({
 
 module.exports = ArticleSubTitle;
 
-},{"react":214}],224:[function(require,module,exports){
+},{"react":214}],225:[function(require,module,exports){
 var React = require('react');
 
 var ArticleText = React.createClass({
@@ -24106,7 +24132,7 @@ var ArticleText = React.createClass({
 
 module.exports = ArticleText;
 
-},{"react":214}],225:[function(require,module,exports){
+},{"react":214}],226:[function(require,module,exports){
 var React = require('react');
 
 var ArticleTitle = React.createClass({
@@ -24123,7 +24149,7 @@ var ArticleTitle = React.createClass({
 
 module.exports = ArticleTitle;
 
-},{"react":214}],226:[function(require,module,exports){
+},{"react":214}],227:[function(require,module,exports){
 var React = require('react');
 var HeaderTitle = require('./HeaderTitle.jsx');
 var HeaderSubTitle = require('./HeaderSubTitle.jsx');
@@ -24140,7 +24166,24 @@ var Header = React.createClass({
       color: 'white'
     };
 
-    var linkStyle = {};
+    var linkStyle = {
+      position: 'absolute',
+      top: 30,
+
+      fontSize: 30
+
+    };
+
+    var textStyle = {
+      color: 'white',
+      textDecoration: 'none'
+
+    };
+
+    var listStyle = {
+      listStyleType: 'none'
+
+    };
 
     return React.createElement(
       'div',
@@ -24158,21 +24201,29 @@ var Header = React.createClass({
           'div',
           { className: 'col-xs-4' },
           React.createElement(
-            'h5',
-            null,
+            'div',
+            { style: linkStyle, className: 'links' },
             React.createElement(
-              Link,
-              { to: '/photos' },
-              'Photos'
-            )
-          ),
-          React.createElement(
-            'h5',
-            null,
-            React.createElement(
-              Link,
-              { to: '/news' },
-              'News'
+              'ul',
+              { style: listStyle },
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  Link,
+                  { style: textStyle, to: '/news' },
+                  'NEWS'
+                )
+              ),
+              React.createElement(
+                'li',
+                null,
+                React.createElement(
+                  Link,
+                  { style: textStyle, to: '/photos' },
+                  'PHOTOS'
+                )
+              )
             )
           )
         )
@@ -24184,7 +24235,7 @@ var Header = React.createClass({
 
 module.exports = Header;
 
-},{"./HeaderSubTitle.jsx":227,"./HeaderTitle.jsx":228,"react":214,"react-router":29}],227:[function(require,module,exports){
+},{"./HeaderSubTitle.jsx":228,"./HeaderTitle.jsx":229,"react":214,"react-router":29}],228:[function(require,module,exports){
 var React = require('react');
 
 var HeaderSubTitle = React.createClass({
@@ -24201,7 +24252,7 @@ var HeaderSubTitle = React.createClass({
 
 module.exports = HeaderSubTitle;
 
-},{"react":214}],228:[function(require,module,exports){
+},{"react":214}],229:[function(require,module,exports){
 var React = require('react');
 
 var HeaderTitle = React.createClass({
@@ -24218,11 +24269,89 @@ var HeaderTitle = React.createClass({
 
 module.exports = HeaderTitle;
 
-},{"react":214}],229:[function(require,module,exports){
+},{"react":214}],230:[function(require,module,exports){
+var React = require('react');
+
+var Photo = React.createClass({
+  displayName: 'Photo',
+
+  render: function () {
+
+    var imageStyle = {
+      height: 170,
+      margin: 10
+    };
+
+    return React.createElement('img', { style: imageStyle, src: this.props.img_src });
+  }
+});
+
+module.exports = Photo;
+
+},{"react":214}],231:[function(require,module,exports){
+var React = require('react');
+var Photo = require('./Photo.jsx');
+
+var PhotoCard = React.createClass({
+  displayName: 'PhotoCard',
+
+  render: function () {
+
+    var cardStyle = {
+      paddingLeft: 35
+
+    };
+
+    return React.createElement(
+      'div',
+      { className: 'col-sm-10' },
+      React.createElement(
+        'div',
+        { className: 'panel panel-default' },
+        React.createElement(
+          'div',
+          { className: 'panel-body' },
+          React.createElement(
+            'div',
+            { style: cardStyle, className: 'photos-' },
+            React.createElement(
+              'div',
+              { className: 'row' },
+              React.createElement(
+                'div',
+                { className: 'col-xs-12' },
+                React.createElement(Photo, { img_src: this.props.image }),
+                React.createElement(Photo, { img_src: this.props.image }),
+                React.createElement(Photo, { img_src: this.props.image }),
+                React.createElement(Photo, { img_src: this.props.image })
+              )
+            ),
+            React.createElement(
+              'div',
+              { className: 'row' },
+              React.createElement(
+                'div',
+                { className: 'col-xs-12' },
+                React.createElement(Photo, { img_src: this.props.image }),
+                React.createElement(Photo, { img_src: this.props.image }),
+                React.createElement(Photo, { img_src: this.props.image }),
+                React.createElement(Photo, { img_src: this.props.image })
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+});
+
+module.exports = PhotoCard;
+
+},{"./Photo.jsx":230,"react":214}],232:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Routes = require('./Routes.jsx');
 
 ReactDOM.render(Routes, document.getElementById('main'));
 
-},{"./Routes.jsx":216,"react":214,"react-dom":1}]},{},[229]);
+},{"./Routes.jsx":216,"react":214,"react-dom":1}]},{},[232]);

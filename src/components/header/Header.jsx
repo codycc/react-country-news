@@ -14,7 +14,22 @@ var Header = React.createClass({
     };
 
     var linkStyle = {
+      position: 'absolute',
+      top: 30,
 
+      fontSize: 30
+
+
+    };
+
+    var textStyle = {
+      color: 'white',
+      textDecoration: 'none',
+
+    };
+
+    var listStyle = {
+      listStyleType: 'none'
 
     };
 
@@ -29,8 +44,12 @@ var Header = React.createClass({
             </div>
 
             <div className="col-xs-4">
-                <h5><Link to="/photos">Photos</Link></h5>
-                <h5><Link to="/news">News</Link></h5>
+                <div style={linkStyle}className="links">
+                  <ul style={listStyle}>
+                    <li><Link style={textStyle} to="/news">NEWS</Link></li>
+                    <li><Link style={textStyle} to="/photos">PHOTOS</Link></li>
+                  </ul>
+                </div>
             </div>
           </div>
         </div>

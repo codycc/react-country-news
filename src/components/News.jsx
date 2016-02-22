@@ -12,6 +12,7 @@ var News = React.createClass({
       <div className="col-sm-offset-2">
         <div className="articles">
             <Article
+            profile = "./images/profileimage.png"
             title="TESTING TITLE 1"
             subtitle="TESTING SUBTITLE 1 "
             text="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -21,6 +22,7 @@ var News = React.createClass({
            location="Toronto,Ontario"/>
 
            <Article
+           profile = "./images/profileimage.png"
            title="TESTING TITLE 2"
            subtitle="TESTING SUBTITLE 2 "
            text="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
