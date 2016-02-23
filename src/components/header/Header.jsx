@@ -32,12 +32,10 @@ var Header = React.createClass({
       textAlign: 'right',
       position: 'relative',
       top:30,
-
+      right: -30
     };
     var photoStyle = {
-      height: 30,
-
-      float: 'right'
+      height: 30
 
     }
 
@@ -46,10 +44,10 @@ var Header = React.createClass({
         <div style={headerStyle} className="header1">
           <div className="col-sm-8 col-sm-offset-2">
             <div className="col-xs-8">
-              <div className="row">
-                <HeaderTitle text={this.props.title} />
+            <div className="row">
+              <HeaderTitle text={this.props.title} />
 
-                </div>
+              </div>
               <div className="row">
               <HeaderSubTitle text={this.props.subtitle} />
               </div>

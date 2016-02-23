@@ -24183,13 +24183,11 @@ var Header = React.createClass({
       listStyleType: 'none',
       textAlign: 'right',
       position: 'relative',
-      top: 30
-
+      top: 30,
+      right: -30
     };
     var photoStyle = {
-      height: 30,
-
-      float: 'right'
+      height: 30
 
     };
 
