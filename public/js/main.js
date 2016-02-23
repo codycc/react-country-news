@@ -23947,6 +23947,7 @@ var News = React.createClass({
           image: './images/reactlogo.svg',
           location: 'Toronto,Ontario' }),
         React.createElement(Article, {
+          profile: './images/profileimage.png',
           title: 'TESTING TITLE 2',
           subtitle: 'TESTING SUBTITLE 2 ',
           text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?',
@@ -24080,7 +24081,7 @@ var ArticleProfile = React.createClass({
 
     var imageStyle = {
       height: 80,
-      margin: 5
+      margin: 15
     };
 
     return React.createElement('img', { style: imageStyle, src: this.props.img_src });
@@ -24167,9 +24168,7 @@ var Header = React.createClass({
     };
 
     var linkStyle = {
-      position: 'absolute',
-      top: 30,
-
+      float: 'right',
       fontSize: 30
 
     };
@@ -24181,7 +24180,14 @@ var Header = React.createClass({
     };
 
     var listStyle = {
-      listStyleType: 'none'
+      listStyleType: 'none',
+      textAlign: 'right',
+      position: 'relative',
+      top: 60,
+      right: -30
+    };
+    var photoStyle = {
+      height: 30
 
     };
 
@@ -24190,12 +24196,20 @@ var Header = React.createClass({
       { style: headerStyle, className: 'header1' },
       React.createElement(
         'div',
-        { className: 'col-sm-8 col-sm-offset-2' },
+        { className: 'col-xs-8 col-sm-offset-2' },
         React.createElement(
           'div',
           { className: 'col-xs-8' },
-          React.createElement(HeaderTitle, { text: this.props.title }),
-          React.createElement(HeaderSubTitle, { text: this.props.subtitle })
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(HeaderTitle, { text: this.props.title })
+          ),
+          React.createElement(
+            'div',
+            { className: 'row' },
+            React.createElement(HeaderSubTitle, { text: this.props.subtitle })
+          )
         ),
         React.createElement(
           'div',

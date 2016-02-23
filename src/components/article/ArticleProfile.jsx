@@ -5,7 +5,7 @@ var ArticleProfile = React.createClass({
 
     var imageStyle = {
       height:80,
-      margin: 5,
+      margin: 15,
     };
 
     return (
