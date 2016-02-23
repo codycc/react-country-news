@@ -24183,11 +24183,13 @@ var Header = React.createClass({
       listStyleType: 'none',
       textAlign: 'right',
       position: 'relative',
-      top: 60,
-      right: -30
+      top: 30
+
     };
     var photoStyle = {
-      height: 30
+      height: 30,
+
+      float: 'right'
 
     };
 
@@ -24196,7 +24198,7 @@ var Header = React.createClass({
       { style: headerStyle, className: 'header1' },
       React.createElement(
         'div',
-        { className: 'col-xs-8 col-sm-offset-2' },
+        { className: 'col-sm-8 col-sm-offset-2' },
         React.createElement(
           'div',
           { className: 'col-xs-8' },
@@ -24217,6 +24219,16 @@ var Header = React.createClass({
           React.createElement(
             'div',
             { style: linkStyle, className: 'links' },
+            React.createElement(
+              'a',
+              { href: 'http://www.twitter.com' },
+              React.createElement('img', { style: photoStyle, src: '/images/twitter.png' })
+            ),
+            React.createElement(
+              'a',
+              { href: 'http://www.github.com' },
+              React.createElement('img', { style: photoStyle, src: '/images/github.svg' })
+            ),
             React.createElement(
               'ul',
               { style: listStyle },

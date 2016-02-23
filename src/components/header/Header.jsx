@@ -31,24 +31,25 @@ var Header = React.createClass({
       listStyleType: 'none',
       textAlign: 'right',
       position: 'relative',
-      top:60,
-      right: -30
+      top:30,
+
     };
     var photoStyle = {
-      height: 30
+      height: 30,
+
+      float: 'right'
 
     }
-
 
     return (
 
         <div style={headerStyle} className="header1">
-          <div className="col-xs-8 col-sm-offset-2">
+          <div className="col-sm-8 col-sm-offset-2">
             <div className="col-xs-8">
-            <div className="row">
-              <HeaderTitle text={this.props.title} />
-            
-              </div>
+              <div className="row">
+                <HeaderTitle text={this.props.title} />
+
+                </div>
               <div className="row">
               <HeaderSubTitle text={this.props.subtitle} />
               </div>
@@ -56,6 +57,8 @@ var Header = React.createClass({
 
             <div className="col-xs-4">
                 <div style={linkStyle}className="links">
+                <a  href="http://www.twitter.com"><img style={photoStyle} src="/images/twitter.png"/></a>
+                <a  href="http://www.github.com"><img style={photoStyle} src="/images/github.svg"/></a>
                   <ul style={listStyle}>
                     <li><Link style={textStyle} to="/news">NEWS</Link></li>
                     <li><Link style={textStyle} to="/photos">PHOTOS</Link></li>

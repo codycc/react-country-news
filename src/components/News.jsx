@@ -4,7 +4,7 @@ var Header = require('./header/Header.jsx');
 var Link = require('react-router').Link;
 
 var News = React.createClass({
-  render: function() {
+  render: function() { 
 
 
     return (
