@@ -9,7 +9,6 @@ var ArticleProfile = require('./ArticleProfile.jsx');
 var Article = React.createClass({
   render: function(){
 
-
     return (
       <div  className="col-sm-10">
         <div  className = "panel panel-default">
@@ -21,10 +20,10 @@ var Article = React.createClass({
                     <ArticleTitle text={this.props.title} />
                     <ArticleSubTitle text={this.props.subtitle} />
                     <ArticleText text={this.props.text} />
-                    <div  className="photos">
-                      <ArticleImage img_src={this.props.image}/>
-                      <ArticleImage  img_src={this.props.image}/>
-                    </div>
+                <div className="photos">
+                    <ArticleImage img_src={this.props.image}/>
+                    <ArticleImage  img_src={this.props.image}/>
+                </div>
                     <ArticleLocation text={this.props.location}/>
 
                 </div>

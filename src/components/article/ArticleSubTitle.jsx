@@ -10,7 +10,6 @@ var ArticleSubTitle = React.createClass({
     return (
       <h4 style={fontStyle }>{this.props.text}</h4>
     )
-
   }
 });
 

@@ -7,11 +7,9 @@ var ArticleLocation = React.createClass({
       fontWeight: 'normal',
       color:'grey'
     };
-
     return (
       <h3 style={locationStyle}>{this.props.text}</h3>
     )
-
   }
 });
 

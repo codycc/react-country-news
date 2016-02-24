@@ -9,7 +9,6 @@ var ArticleText = React.createClass({
     return (
       <p style={textStyle}>{this.props.text}</p>
     )
-
   }
 });
 

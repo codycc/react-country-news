@@ -5,7 +5,6 @@ var ArticleTitle = React.createClass({
     return (
       <h3>{this.props.text}</h3>
     )
-
   }
 });
 

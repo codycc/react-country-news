@@ -23988,42 +23988,42 @@ var ArticleImage = require('./ArticleImage.jsx');
 var ArticleProfile = require('./ArticleProfile.jsx');
 
 var Article = React.createClass({
-  displayName: 'Article',
+    displayName: 'Article',
 
-  render: function () {
+    render: function () {
 
-    return React.createElement(
-      'div',
-      { className: 'col-sm-10' },
-      React.createElement(
-        'div',
-        { className: 'panel panel-default' },
-        React.createElement(
-          'div',
-          { className: 'panel-body' },
-          React.createElement(
+        return React.createElement(
             'div',
-            { className: 'col-xs-2' },
-            React.createElement(ArticleProfile, { img_src: this.props.profile })
-          ),
-          React.createElement(
-            'div',
-            { className: 'col-xs-8' },
-            React.createElement(ArticleTitle, { text: this.props.title }),
-            React.createElement(ArticleSubTitle, { text: this.props.subtitle }),
-            React.createElement(ArticleText, { text: this.props.text }),
+            { className: 'col-sm-10' },
             React.createElement(
-              'div',
-              { className: 'photos' },
-              React.createElement(ArticleImage, { img_src: this.props.image }),
-              React.createElement(ArticleImage, { img_src: this.props.image })
-            ),
-            React.createElement(ArticleLocation, { text: this.props.location })
-          )
-        )
-      )
-    );
-  }
+                'div',
+                { className: 'panel panel-default' },
+                React.createElement(
+                    'div',
+                    { className: 'panel-body' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-xs-2' },
+                        React.createElement(ArticleProfile, { img_src: this.props.profile })
+                    ),
+                    React.createElement(
+                        'div',
+                        { className: 'col-xs-8' },
+                        React.createElement(ArticleTitle, { text: this.props.title }),
+                        React.createElement(ArticleSubTitle, { text: this.props.subtitle }),
+                        React.createElement(ArticleText, { text: this.props.text }),
+                        React.createElement(
+                            'div',
+                            { className: 'photos' },
+                            React.createElement(ArticleImage, { img_src: this.props.image }),
+                            React.createElement(ArticleImage, { img_src: this.props.image })
+                        ),
+                        React.createElement(ArticleLocation, { text: this.props.location })
+                    )
+                )
+            )
+        );
+    }
 
 });
 
